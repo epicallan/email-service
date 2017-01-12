@@ -15,9 +15,12 @@ Expected http POST payload to the `/send` route
 
 - git clone the repo
 - update configs/example.config.js with the proper values and rename to config.js
-- then run the docker commands below
+- Have docker installed and running and then run the docker commands below
+
+
 ```
 docker build -t email-service .
+
 docker run  -t -i -p 9999:9999 --name  email-service-app -d email-service
 
 ```
