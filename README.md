@@ -9,6 +9,7 @@ Expected http POST payload to the `/send` route
    "emails": ["epicallan.al@gmail.com"],
    "subject": "pdfs downloads",
    "message": "hello pdfs",
+   "token": "token"
  }
 ```
 
@@ -16,6 +17,7 @@ Expected http POST payload to the `/send` route
 
 - git clone the repo
 - update configs/example.config.js with the proper values and rename to config.js
+- add tokens
 - Have docker installed and running and then run the docker commands below
 
 

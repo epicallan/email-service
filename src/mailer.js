@@ -5,9 +5,8 @@ const tokens = require('./configs/tokens');
 
 const transporter = nodemailer.createTransport(`smtps://${user}%40gmail.com:${pass}@smtp.gmail.com`);
 
-const mailOptions = ({ emails, message, subject, from }) => ({
-  // from: '"Devinit email service" <epicallan.al@gmail.com>', // sender address
-  from,
+const mailOptions = ({ emails, message, subject }) => ({
+  from: '"Devinit email service" <epicallan.al@gmail.com>', // sender address
   to: emails.join(','), // list of receivers
   subject, // Subject line
   text: message, // plaintext body
