@@ -18,10 +18,9 @@
     "email": "epicallan.al@gmail.com"
   },
   "keywords": [
-    "github",
-    "git",
-    "deploy server",
-    "github webhooks"
+    "email",
+    "nodemailer",
+    "email service"
   ],
   "devDependencies": {
     "chai": "^3.5.0",
