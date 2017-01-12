@@ -19,4 +19,4 @@ ENV PORT 9999
 
 EXPOSE 9999
 
-CMD ["npm start"]
+CMD npm start
