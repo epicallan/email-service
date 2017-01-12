@@ -20,7 +20,7 @@ function emailer(payload, callback) {
   return transporter.sendMail(options, (error, info) => {
     if (error) return console.log(error);
     if (callback) return callback(error, info);
-    return info;
+    return 'sent email';
   });
 }
 
