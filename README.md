@@ -28,5 +28,8 @@ docker run  -t -i -p 9999:9999 --name  email-service-app -d email-service
 
 ```
 
+### TODO
+ - Attach tokens to domains so that tokens are not re-used for malicious purposes by malicious users
+
 
 @ MIT LICENSED
