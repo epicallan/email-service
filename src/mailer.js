@@ -14,7 +14,7 @@ const mailOptions = ({ emails, message, subject }) => ({
 
 function emailer(payload, callback) {
   // we dont send emails while in development environment
-  // if (process.env.NODE_ENV === 'development') return false;
+  if (process.env.NODE_ENV === 'development') return false;
   const options = mailOptions(payload);
   // send mail with defined transport object
   return transporter.sendMail(options, (error, info) => {
