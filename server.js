@@ -6,7 +6,7 @@ const app = require('./src/app');
 /**
  * Get port from environment and store in Express.
  */
-const PORT = process.env.PORT || '5000';
+const PORT = process.env.PORT || '9999';
 
 app.listen(PORT);
 
