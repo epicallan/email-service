@@ -9,7 +9,8 @@ Expected http POST payload to the `/send` route
    "emails": ["epicallan.al@gmail.com"],
    "subject": "pdfs downloads",
    "message": "hello pdfs",
- }```
+ }
+```
 
 ### How to step
 
