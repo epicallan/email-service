@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
  */
 router.post('/send', (req, res) => {
   const info = emailer(req.body);
-  res.send(info);
+  res.send(`processed send email request: ${info}`);
 });
 
 module.exports = router;

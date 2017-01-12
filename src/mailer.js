@@ -17,7 +17,9 @@ const mailOptions = ({ emails, message, subject, from }) => ({
 function emailer(payload, callback) {
   // we dont send emails while in development environment
   const isAuthorised = tokens.some(token => payload.token === token);
-  if (process.env.NODE_ENV === 'development' || !isAuthorised) return false;
+  if (process.env.NODE_ENV === 'development' || !isAuthorised) {
+    return 'not authorised to send email or in development environment';
+  }
   const options = mailOptions(payload);
   // send mail with defined transport object
   return transporter.sendMail(options, (error, info) => {
