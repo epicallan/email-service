@@ -2,9 +2,15 @@ const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const routes = require('./router');
+const cors = require('cors');
 const app = express();
 
-app.use(logger('dev'));
+const loggerLevel = process.env.NODE_ENV === 'development' ? 'dev' : 'tiny';
+
+app.use(logger(loggerLevel));
+
+app.use(cors());
+
 app.use(bodyParser.json({ limit: '50mb' }));
 
 app.use('/', routes);
@@ -19,7 +25,7 @@ app.use((req, res, next) => {
 // error handlers
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
+if (process.env.NODE_ENV === 'development') {
   app.use((err, req, res) => {
     res.status(err.status || 500);
     res.send({

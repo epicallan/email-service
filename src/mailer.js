@@ -1,11 +1,13 @@
 const nodemailer = require('nodemailer');
 const { user, pass } = require('./configs/config');
+const tokens = require('./configs/tokens');
 
 
 const transporter = nodemailer.createTransport(`smtps://${user}%40gmail.com:${pass}@smtp.gmail.com`);
 
-const mailOptions = ({ emails, message, subject }) => ({
-  from: '"Devinit email service" <epicallan.al@gmail.com>', // sender address
+const mailOptions = ({ emails, message, subject, from }) => ({
+  // from: '"Devinit email service" <epicallan.al@gmail.com>', // sender address
+  from,
   to: emails.join(','), // list of receivers
   subject, // Subject line
   text: message, // plaintext body
@@ -14,7 +16,8 @@ const mailOptions = ({ emails, message, subject }) => ({
 
 function emailer(payload, callback) {
   // we dont send emails while in development environment
-  if (process.env.NODE_ENV === 'development') return false;
+  const isAuthorised = tokens.some(token => payload.token === token);
+  if (process.env.NODE_ENV === 'development' || !isAuthorised) return false;
   const options = mailOptions(payload);
   // send mail with defined transport object
   return transporter.sendMail(options, (error, info) => {

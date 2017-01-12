@@ -27,5 +27,6 @@ build/Release
 node_modules
 github-deploy.sh
 src/configs/config.js
+src/configs/tokens.js
 lupaProject.json
 .DS_Store
